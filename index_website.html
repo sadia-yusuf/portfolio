@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sadia Saad Yusuf · CA · Financial Data Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --navy2: #162032;
+    --navy3: #1f2e42;
+    --gold: #c9a84c;
+    --gold2: #e8c87a;
+    --gold-light: #f5e8c8;
+    --cream: #f8f4ed;
+    --cream2: #f0ead9;
+    --text: #1a2433;
+    --muted: #6b7a8d;
+    --border: rgba(201,168,76,0.2);
+    --radius: 4px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); line-height: 1.7; overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13,27,42,0.97); backdrop-filter: blur(12px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5vw; height: 60px;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+  .nav-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--gold); letter-spacing: 0.03em; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 80px 8vw 60px;
+    gap: 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .hero-eyebrow { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.6rem, 4.4vw, 4.6rem);
+    font-weight: 600; line-height: 1.05;
+    color: #fff;
+    margin-bottom: 1.2rem;
+  }
+  .hero-name span { color: var(--gold); }
+  .hero-subtitle { font-size: 1rem; color: rgba(255,255,255,0.65); line-height: 1.7; max-width: 460px; margin-bottom: 2.5rem; }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2.5rem; }
+  .hero-tag {
+    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 5px 14px; border: 1px solid rgba(201,168,76,0.35);
+    color: var(--gold); border-radius: 2px;
+  }
+  .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-block; padding: 12px 28px;
+    background: var(--gold); color: var(--navy); font-weight: 500; font-size: 0.85rem;
+    text-decoration: none; letter-spacing: 0.05em; border-radius: var(--radius);
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--gold2); transform: translateY(-1px); }
+  .btn-outline {
+    display: inline-block; padding: 12px 28px;
+    border: 1px solid rgba(201,168,76,0.5); color: var(--gold); font-size: 0.85rem;
+    text-decoration: none; letter-spacing: 0.05em; border-radius: var(--radius);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.08); }
+
+  .hero-visual {
+    display: flex; flex-direction: column; gap: 1rem; align-items: flex-end;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 8px; padding: 1.25rem 1.5rem;
+    width: 100%; max-width: 300px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .stat-card:hover { border-color: rgba(201,168,76,0.4); background: rgba(255,255,255,0.06); }
+  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 600; color: var(--gold); line-height: 1; }
+  .stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.5); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 4px; }
+
+  /* SECTION COMMON */
+  section { padding: 80px 8vw; }
+  .section-label { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 500; color: var(--text); line-height: 1.2; margin-bottom: 3rem; }
+  .section-title-light { color: #fff; }
+  .gold-line { width: 40px; height: 2px; background: var(--gold); margin: 1rem 0 2.5rem; }
+
+  /* ABOUT */
+  .about { background: var(--cream); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .about-body { font-size: 1rem; color: #3a4a5c; line-height: 1.85; }
+  .about-body p + p { margin-top: 1rem; }
+  .about-details { display: flex; flex-direction: column; gap: 1.2rem; }
+  .detail-row { display: flex; gap: 1rem; padding: 1rem 1.25rem; background: #fff; border-left: 3px solid var(--gold); border-radius: 0 var(--radius) var(--radius) 0; box-shadow: 0 1px 6px rgba(0,0,0,0.04); }
+  .detail-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+  .detail-title { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .detail-value { font-size: 0.9rem; font-weight: 500; color: var(--text); }
+
+  /* EXPERTISE */
+  .expertise { background: var(--navy); }
+  .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+  .exp-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.12);
+    border-radius: 8px; padding: 1.5rem;
+    transition: border-color 0.25s, transform 0.2s;
+  }
+  .exp-card:hover { border-color: rgba(201,168,76,0.45); transform: translateY(-3px); }
+  .exp-icon { font-size: 1.6rem; margin-bottom: 0.8rem; }
+  .exp-title { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; color: var(--gold); margin-bottom: 0.5rem; }
+  .exp-list { font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.8; }
+
+  /* EXPERIENCE */
+  .experience { background: var(--cream2); }
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+  .timeline-item { display: grid; grid-template-columns: 160px 1fr; gap: 2rem; padding: 2rem 0; border-top: 1px solid rgba(0,0,0,0.08); }
+  .timeline-item:last-child { border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .timeline-date { font-size: 0.78rem; color: var(--muted); padding-top: 4px; line-height: 1.5; }
+  .timeline-company { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+  .timeline-role { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--text); font-weight: 600; margin: 4px 0 0.5rem; }
+  .timeline-clients { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.8rem; font-style: italic; }
+  .timeline-bullets { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .timeline-bullets li { font-size: 0.88rem; color: #3a4a5c; padding-left: 1.2rem; position: relative; line-height: 1.6; }
+  .timeline-bullets li::before { content: '▸'; position: absolute; left: 0; color: var(--gold); font-size: 0.75rem; top: 3px; }
+
+  /* PROJECTS */
+  .projects { background: var(--navy); }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+  .proj-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.12);
+    border-radius: 8px; padding: 1.5rem 1.5rem 1.25rem;
+    display: flex; flex-direction: column;
+    transition: border-color 0.25s, transform 0.2s;
+  }
+  .proj-card:hover { border-color: rgba(201,168,76,0.4); transform: translateY(-3px); }
+  .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1rem; }
+  .proj-tag { font-size: 0.67rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; background: rgba(201,168,76,0.12); color: var(--gold); border-radius: 2px; }
+  .proj-title { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; color: #fff; margin-bottom: 0.5rem; line-height: 1.3; }
+  .proj-desc { font-size: 0.83rem; color: rgba(255,255,255,0.5); line-height: 1.7; flex: 1; margin-bottom: 1.2rem; }
+  .proj-link { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); text-decoration: none; display: flex; align-items: center; gap: 6px; }
+  .proj-link::after { content: '→'; transition: transform 0.2s; }
+  .proj-link:hover::after { transform: translateX(4px); }
+
+  /* CERTIFICATIONS */
+  .certs { background: var(--cream); }
+  .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+  .cert-item {
+    background: #fff; border: 1px solid #e8e0d0; border-radius: var(--radius);
+    padding: 1rem 1.25rem; display: flex; flex-direction: column; gap: 4px;
+    border-left: 3px solid var(--gold);
+  }
+  .cert-name { font-size: 0.9rem; font-weight: 500; color: var(--text); }
+  .cert-issuer { font-size: 0.78rem; color: var(--muted); }
+  .cert-badge { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); }
+
+  /* LINKEDIN / CONTACT */
+  .contact { background: var(--navy); text-align: center; padding: 80px 8vw; }
+  .contact-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.5rem); color: #fff; margin-bottom: 1rem; }
+  .contact-sub { color: rgba(255,255,255,0.55); font-size: 1rem; max-width: 480px; margin: 0 auto 2.5rem; }
+  .contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+  .contact-link {
+    display: flex; align-items: center; gap: 8px;
+    padding: 12px 24px; border: 1px solid rgba(201,168,76,0.35);
+    color: var(--gold); text-decoration: none; border-radius: var(--radius);
+    font-size: 0.85rem; letter-spacing: 0.06em;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .contact-link:hover { background: rgba(201,168,76,0.1); border-color: var(--gold); }
+
+  /* FOOTER */
+  footer { background: #081118; padding: 1.5rem 8vw; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  footer p { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; padding: 100px 6vw 60px; }
+    .hero-visual { display: none; }
+    .about-grid { grid-template-columns: 1fr; }
+    .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .timeline-date { border-top: none; padding-top: 0; }
+    nav { padding: 0 4vw; }
+    .nav-links { gap: 1.2rem; }
+  }
+
+  /* Scroll fade-in */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">Sadia Yusuf</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Chartered Accountant · Data Analyst · New Delhi</div>
+    <h1 class="hero-name">
+      Sadia <span>Saad Yusuf</span>
+    </h1>
+    <p class="hero-subtitle">
+      CA with 7+ years of high-stakes audit experience across India's biggest institutions — now turning deep financial domain knowledge into risk analytics and data-driven insight with Python, SQL, Power BI, and Tableau.
+    </p>
+    <div class="hero-tags">
+      <span class="hero-tag">CA · ICAI</span>
+      <span class="hero-tag">Python · SQL</span>
+      <span class="hero-tag">Power BI · Tableau</span>
+      <span class="hero-tag">Risk Analytics</span>
+      <span class="hero-tag">Financial Modelling</span>
+    </div>
+    <div class="btn-row">
+      <a class="btn-primary" href="https://www.linkedin.com/in/sadia-yusuf1208/" target="_blank">Connect on LinkedIn</a>
+      <a class="btn-outline" href="https://github.com/sadia-yusuf" target="_blank">View GitHub</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="stat-card">
+      <div class="stat-num">7+</div>
+      <div class="stat-label">Years audit experience</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">15+</div>
+      <div class="stat-label">Major clients audited</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">15+</div>
+      <div class="stat-label">Certifications earned</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">8</div>
+      <div class="stat-label">Analytics projects (GitHub)</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="reveal">
+    <div class="section-label">About</div>
+    <h2 class="section-title">Finance mind.<br>Data instinct.</h2>
+    <div class="about-grid">
+      <div class="about-body">
+        <p>I'm a Chartered Accountant from ICAI who spent seven years auditing some of India's most complex organisations — the State Bank of India, Delhi Metro Railway Corporation, BSES Yamuna Power, IFCI, and DMICDC. That work gave me something rare: an instinctive feel for where financial data lies, misleads, or reveals truth under pressure.</p>
+        <p>Now I'm combining that domain depth with serious analytical capability — Python, SQL, Power BI, Tableau, financial modelling, and data warehousing. My GitHub portfolio includes projects from NHS capacity analysis to DCF valuation of DMart to a full data warehouse build in SQL.</p>
+        <p>I'm not a generalist analyst who learned some finance. I'm a finance professional who has earned the analytical tools — with a particular focus on risk analytics, fraud detection, and financial intelligence.</p>
+      </div>
+      <div class="about-details">
+        <div class="detail-row"><div class="detail-icon">🎓</div><div><div class="detail-title">Qualification</div><div class="detail-value">Chartered Accountant (ICAI) · M.Com, IGNOU · B.Com (Hons), Delhi University</div></div></div>
+        <div class="detail-row"><div class="detail-icon">📍</div><div><div class="detail-title">Location</div><div class="detail-value">New Delhi, India</div></div></div>
+        <div class="detail-row"><div class="detail-icon">🏦</div><div><div class="detail-title">Domain Depth</div><div class="detail-value">Financial Risk · Audit Analytics · Banking · Compliance</div></div></div>
+        <div class="detail-row"><div class="detail-icon">📊</div><div><div class="detail-title">Analytics Stack</div><div class="detail-value">Python · SQL · Power BI · Tableau · Excel (VBA/PQ)</div></div></div>
+        <div class="detail-row"><div class="detail-icon">✉️</div><div><div class="detail-title">Email</div><div class="detail-value">sadiayusuf23@gmail.com</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section class="expertise" id="expertise">
+  <div class="reveal">
+    <div class="section-label">What I do</div>
+    <h2 class="section-title section-title-light">Areas of expertise</h2>
+    <div class="expertise-grid">
+      <div class="exp-card">
+        <div class="exp-icon">🔍</div>
+        <div class="exp-title">Audit & Assurance</div>
+        <div class="exp-list">Statutory Audit · Internal Audit · Tax Audit · Risk Assessment · Internal Controls · Ind AS / IFRS · Stock Audit · Limited Review</div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-icon">📈</div>
+        <div class="exp-title">Financial Analysis</div>
+        <div class="exp-list">DCF Valuation · Comparable Company Analysis · Financial Modelling · Variance Analysis · Sensitivity & Scenario Analysis · Forecasting</div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-icon">🐍</div>
+        <div class="exp-title">Python Analytics</div>
+        <div class="exp-list">Pandas · NumPy · Matplotlib · Seaborn · Exploratory Data Analysis · Statistical Analysis · Data Cleaning & Transformation</div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-icon">🗃️</div>
+        <div class="exp-title">SQL & Data Engineering</div>
+        <div class="exp-list">PostgreSQL · MySQL · Advanced Queries · Stored Procedures · Data Warehouse Design · ETL Pipelines · Data Quality Management</div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-icon">📊</div>
+        <div class="exp-title">Business Intelligence</div>
+        <div class="exp-list">Power BI · Tableau · Executive Dashboards · KPI Reporting · Data Storytelling · Power Query · Power Pivot · DAX</div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-icon">🤖</div>
+        <div class="exp-title">Excel & Automation</div>
+        <div class="exp-list">VBA Macros · Power Query · Advanced Formulas · Solver · Pivot Tables · Data Analysis ToolPak · Process Automation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div class="reveal">
+    <div class="section-label">Career</div>
+    <h2 class="section-title">Experience</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div>
+          <div class="timeline-date">Nov 2019 – Present</div>
+          <div style="font-size:0.75rem; color:var(--muted); margin-top:4px;">6+ years</div>
+        </div>
+        <div>
+          <div class="timeline-company">KPMR & Associates · New Delhi</div>
+          <div class="timeline-role">Auditor</div>
+          <div class="timeline-clients">Key clients: State Bank of India · Delhi Metro Railway Corporation · Janta Cooperative Bank · 15+ others</div>
+          <ul class="timeline-bullets">
+            <li>Led statutory and internal audits for 15+ clients across BFSI, infrastructure, and manufacturing sectors.</li>
+            <li>Conducted statutory audit for SBI — analysing multi-branch data, loan portfolios and financial products worth billions of rupees.</li>
+            <li>Executed internal audit for Delhi Metro Railway Corporation, evaluating CapEx decisions and governance protocols.</li>
+            <li>Identified control gaps that improved operational efficiency by 25% and materially reduced compliance risk.</li>
+            <li>Applied Python and SQL to automate financial data extraction, reconciliation, and anomaly detection in audit workflows.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div>
+          <div class="timeline-date">Jun 2018 – Nov 2019</div>
+          <div style="font-size:0.75rem; color:var(--muted); margin-top:4px;">1.5 years</div>
+        </div>
+        <div>
+          <div class="timeline-company">Independent Practice · New Delhi</div>
+          <div class="timeline-role">Chartered Accountant</div>
+          <div class="timeline-clients">ICAI Certificate of Practice · Owner-managed businesses across trading, services &amp; manufacturing</div>
+          <ul class="timeline-bullets">
+            <li>Ran an independent CA practice serving small and mid-sized owner-managed businesses on audit, compliance, and finance-process engagements.</li>
+            <li>Conducted statutory and tax audits (Section 44AB), testing revenue and expense classification and reporting control weaknesses across the cash, purchase, and payroll cycles.</li>
+            <li>Guided clients through the post-GST transition — reconciled GSTR-1 and GSTR-3B to books, resolved input-tax-credit mismatches, and set up repeatable monthly reconciliation routines.</li>
+            <li>Built Excel and Power Query reporting templates that replaced manual monthly compilation and standardised MIS output.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div>
+          <div class="timeline-date">Feb 2013 – Jul 2015</div>
+          <div style="font-size:0.75rem; color:var(--muted); margin-top:4px;">2.5 years</div>
+        </div>
+        <div>
+          <div class="timeline-company">Thakur Vaidyanath Aiyar & Co. · New Delhi</div>
+          <div class="timeline-role">Senior Articled Assistant</div>
+          <div class="timeline-clients">DMICDC · BSES Yamuna Power · IFCI · FIEO · Fujifilm · Urban Mass Transit Company</div>
+          <ul class="timeline-bullets">
+            <li>Executed statutory, internal, tax, and stock audits for a high-profile portfolio spanning infrastructure, power, finance and manufacturing.</li>
+            <li>Prepared comprehensive audit reports and financial statement analyses for organisations with multi-crore asset bases.</li>
+            <li>Identified and documented internal control gaps; recommended improvements aligned with regulatory best practices.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div>
+          <div class="timeline-date">Feb 2012 – Feb 2013</div>
+        </div>
+        <div>
+          <div class="timeline-company">A.K. Khattar & Associates · New Delhi</div>
+          <div class="timeline-role">Articled Assistant</div>
+          <ul class="timeline-bullets">
+            <li>Built foundational expertise in audit methodology, financial analysis, and client engagement management.</li>
+            <li>Performed reconciliations, journal entries, and documentation across client engagements.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+  <div class="reveal">
+    <div class="section-label">Portfolio</div>
+    <h2 class="section-title section-title-light">Analytics projects</h2>
+    <div class="projects-grid">
+
+      <div class="proj-card">
+        <div class="proj-tags"><span class="proj-tag">SQL</span><span class="proj-tag">PLpgSQL</span><span class="proj-tag">Data Warehouse</span></div>
+        <div class="proj-title">Modern Data Warehouse Build</div>
+        <div class="proj-desc">End-to-end data warehouse built from scratch using SQL: star schema design, ETL pipelines, stored procedures, and financial reporting layers.</div>
+        <a class="proj-link" href="https://github.com/sadia-yusuf/SOL--DataWarehouse-project" target="_blank">View on GitHub</a>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-tags"><span class="proj-tag">SQL</span><span class="proj-tag">Tableau</span><span class="proj-tag">Excel</span><span class="proj-tag">RFM</span></div>
+        <div class="proj-title">Multi-Country Retail EDA</div>
+        <div class="proj-desc">RFM customer segmentation, channel evaluation, and high-value product identification for a multi-country retail dataset. Interactive Tableau dashboards as output.</div>
+        <a class="proj-link" href="https://github.com/sadia-yusuf/Exploratory-Data-analysis-using-SQL-and-Tableau" target="_blank">View on GitHub</a>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-tags"><span class="proj-tag">Excel</span><span class="proj-tag">Financial Model</span><span class="proj-tag">DCF</span></div>
+        <div class="proj-title">DMart — DCF Valuation Model</div>
+        <div class="proj-desc">Full financial model for Avenue Supermarts (NSE: DMART) using DCF and comparable company analysis. Includes revenue forecasting, FCFF, and sensitivity scenarios.</div>
+        <a class="proj-link" href="https://github.com/sadia-yusuf/Financial-Modelling_DCF-Valuation" target="_blank">View on GitHub</a>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">Pandas</span><span class="proj-tag">Matplotlib</span><span class="proj-tag">Healthcare</span></div>
+        <div class="proj-title">NHS Diagnostic Analysis</div>
+        <div class="proj-desc">Diagnostic analysis of NHS appointment data (2020–2022): COVID-19 impact, capacity utilisation, waiting times, and operational efficiency using Python. Executive-ready deliverable.</div>
+        <a class="proj-link" href="https://github.com/sadia-yusuf/NHS-Diagnostic-Analysis-Healthcare-Capacity-Appointment-Analysis" target="_blank">View on GitHub</a>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">Classification</span><span class="proj-tag">Data Engineering</span></div>
+        <div class="proj-title">Product Attribution System</div>
+        <div class="proj-desc">Rule-based + confidence-scored product classification engine mapping raw product data to client-defined taxonomies. Demonstrates judgment-driven data engineering.</div>
+        <a class="proj-link" href="https://github.com/sadia-yusuf/Product_Attribution" target="_blank">View on GitHub</a>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">Pandas</span><span class="proj-tag">Anomaly Detection</span><span class="proj-tag">Risk Analytics</span></div>
+        <div class="proj-title">Banking Transaction Anomaly Detection & Analysis</div>
+        <div class="proj-desc">End-to-end Python pipeline that detects anomalies, flags risk signals, and surfaces spending patterns in banking transaction data. Uses dual-method detection (Z-score + IQR), 24-hour velocity checks, and dormant account spike analysis. Key findings: 3.2% outlier rate, top 3 categories account for 68% of spend, seasonal spikes in December and March. Built on real SBI audit experience.</div>
+        <a class="proj-link" href="https://github.com/sadia-yusuf/-Banking-Transaction-Analysis" target="_blank">View on GitHub</a>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">scikit-learn</span><span class="proj-tag">Machine Learning</span><span class="proj-tag">Churn</span></div>
+        <div class="proj-title">ConnectTel Customer Churn Prediction</div>
+        <div class="proj-desc">Machine-learning pipeline predicting telecom customer churn with a soft-voting ensemble (Logistic Regression + Random Forest + HistGradientBoosting). A retention-economics cost function sets a cost-optimised decision threshold (0.34) rather than defaulting to 0.5. Test ROC-AUC 0.841, catching 78.9% of churners for an expected £23,225 saving per intervention cycle. Built in the LSE Data Analytics Career Accelerator.</div>
+        <a class="proj-link" href="https://github.com/sadia-yusuf/connecttel-churn-model" target="_blank">View on GitHub</a>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">R</span><span class="proj-tag">Segmentation</span><span class="proj-tag">NLP</span><span class="proj-tag">Predictive Modelling</span></div>
+        <div class="proj-title">Customer Loyalty Analytics</div>
+        <div class="proj-desc">End-to-end loyalty study on 2,000 customer records (Turtle Games): K-Means segmentation into five commercial segments, multiple linear regression explaining 82.7% of loyalty variance, and VADER / TextBlob sentiment analysis of review text. Tree-based models reach R² 0.94 for CRM deployment. Built across Python and R for the LSE Advanced Analytics programme.</div>
+        <a class="proj-link" href="https://github.com/sadia-yusuf/Customer-loyalty-analytics-segmentation-drivers-and-predictive-modelling" target="_blank">View on GitHub</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="certs" id="certifications">
+  <div class="reveal">
+    <div class="section-label">Credentials</div>
+    <h2 class="section-title">Certifications</h2>
+    <div class="certs-grid">
+      <div class="cert-item"><div class="cert-name">Chartered Accountant (CA)</div><div class="cert-issuer">ICAI · Nov 2017</div><div class="cert-badge">⭐ Core Credential</div></div>
+      <div class="cert-item"><div class="cert-name">Tableau & Power BI Specialist</div><div class="cert-issuer">Grant Thornton</div></div>
+      <div class="cert-item"><div class="cert-name">Advanced Excel & VBA</div><div class="cert-issuer">Grant Thornton</div></div>
+      <div class="cert-item"><div class="cert-name">Financial Modelling & Valuation</div><div class="cert-issuer">Grant Thornton</div></div>
+      <div class="cert-item"><div class="cert-name">Google Data Analytics</div><div class="cert-issuer">Coursera / Google</div></div>
+      <div class="cert-item"><div class="cert-name">Investment Banking & Financial Analytics</div><div class="cert-issuer">Boston Institute of Analytics</div></div>
+      <div class="cert-item"><div class="cert-name">Power Query & Power Pivot Mastery</div><div class="cert-issuer">Udemy</div></div>
+      <div class="cert-item"><div class="cert-name">Statistical Analysis & Data Visualization</div><div class="cert-issuer">Udemy</div></div>
+      <div class="cert-item"><div class="cert-name">Excel Skills for Data Analytics</div><div class="cert-issuer">Macquarie University · Coursera</div></div>
+      <div class="cert-item"><div class="cert-name">Gen AI for Managers</div><div class="cert-issuer">TimesPro</div></div>
+      <div class="cert-item"><div class="cert-name">Business Analytics for Executives</div><div class="cert-issuer">LSE Online</div></div>
+      <div class="cert-item"><div class="cert-name">Applying Python for Data Analysis</div><div class="cert-issuer">IBM</div></div>
+      <div class="cert-item"><div class="cert-name">GenAI for Data Science Teams</div><div class="cert-issuer">IBM</div></div>
+      <div class="cert-item"><div class="cert-name">Data Visualization and Dashboards with Excel and Cognos</div><div class="cert-issuer">IBM</div></div>
+      <div class="cert-item"><div class="cert-name">Introduction to Data Analytics</div><div class="cert-issuer">IBM</div></div>
+      <div class="cert-item"><div class="cert-name">Python for Data Science, AI &amp; Development</div><div class="cert-issuer">IBM</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VIRTUAL INTERNSHIPS -->
+<section class="certs" id="internships" style="background:var(--cream2);">
+  <div class="reveal">
+    <div class="section-label">Applied experience</div>
+    <h2 class="section-title">Virtual internships</h2>
+    <div class="certs-grid">
+      <div class="cert-item"><div class="cert-name">Data Visualisation: Empowering Business with Effective Insights</div><div class="cert-issuer">Tata · Forage</div></div>
+      <div class="cert-item"><div class="cert-name">Controllers Job Simulation</div><div class="cert-issuer">Goldman Sachs · Forage</div></div>
+      <div class="cert-item"><div class="cert-name">Data Analytics Job Simulation</div><div class="cert-issuer">Deloitte Australia · Forage</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="reveal">
+    <h2 class="contact-title">Let's connect</h2>
+    <p class="contact-sub">Open to Finance Risk Analytics, Financial Transformation and Analytics, Business Analytics, and BI analyst roles.</p>
+    <div class="contact-links">
+      <a class="contact-link" href="mailto:sadiayusuf23@gmail.com">✉ sadiayusuf23@gmail.com</a>
+      <a class="contact-link" href="https://www.linkedin.com/in/sadia-yusuf1208/" target="_blank">in LinkedIn</a>
+      <a class="contact-link" href="https://github.com/sadia-yusuf" target="_blank">⌥ GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Sadia Saad Yusuf · CA · Financial Data Analyst</p>
+  <p>New Delhi, India · sadiayusuf23@gmail.com</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
