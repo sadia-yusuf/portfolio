@@ -183,9 +183,11 @@
   .proj-card:hover { border-color: var(--gold-border); background: var(--white); transform: translateY(-3px); }
   .proj-thumb {
     height: 140px; display: flex; align-items: center; justify-content: center;
-    font-size: 2.5rem; background: linear-gradient(135deg, var(--cream2), var(--gold-light));
+    background: radial-gradient(circle at 28% 22%, #242b39, #0d1119 78%);
     border-bottom: 1px solid var(--border);
   }
+  .proj-thumb svg { width: 76%; height: 76%; filter: drop-shadow(0 0 5px rgba(201,168,76,0.35)); }
+  .proj-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
   .proj-body { padding: 1.5rem 1.5rem 1.25rem; display: flex; flex-direction: column; flex: 1; }
   .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1rem; }
   .proj-tag { font-size: 0.67rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; padding: 3px 10px; border: 1px solid var(--gold-border); color: var(--gold-deep); border-radius: 999px; }
@@ -456,7 +458,16 @@
     <div class="projects-grid">
 
       <div class="proj-card">
-        <div class="proj-thumb">🗃️</div>
+        <div class="proj-thumb">
+          <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg">
+            <line x1="20" y1="130" x2="280" y2="130" stroke="#e8c87a" stroke-opacity="0.25"/>
+            <rect x="45" y="90" width="24" height="40" rx="2" fill="none" stroke="#e8c87a" stroke-width="2"/>
+            <rect x="85" y="70" width="24" height="60" rx="2" fill="none" stroke="#c9a84c" stroke-width="2"/>
+            <rect x="125" y="50" width="24" height="80" rx="2" fill="none" stroke="#e8c87a" stroke-width="2"/>
+            <rect x="165" y="65" width="24" height="65" rx="2" fill="none" stroke="#c9a84c" stroke-width="2"/>
+            <rect x="205" y="40" width="24" height="90" rx="2" fill="none" stroke="#e8c87a" stroke-width="2"/>
+          </svg>
+        </div>
         <div class="proj-body">
           <div class="proj-tags"><span class="proj-tag">SQL</span><span class="proj-tag">PLpgSQL</span><span class="proj-tag">Data Warehouse</span></div>
           <div class="proj-title">Modern Data Warehouse Build</div>
@@ -468,7 +479,9 @@
       </div>
 
       <div class="proj-card">
-        <div class="proj-thumb">🛍️</div>
+        <div class="proj-thumb">
+          <img src="Assets-%20projects/Multi-Country%20Retail%20EDA.png" alt="Multi-Country Retail EDA dashboard screenshot">
+        </div>
         <div class="proj-body">
           <div class="proj-tags"><span class="proj-tag">SQL</span><span class="proj-tag">Tableau</span><span class="proj-tag">Excel</span><span class="proj-tag">RFM</span></div>
           <div class="proj-title">Multi-Country Retail EDA</div>
@@ -481,7 +494,16 @@
       </div>
 
       <div class="proj-card">
-        <div class="proj-thumb">💹</div>
+        <div class="proj-thumb">
+          <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg">
+            <line x1="20" y1="130" x2="280" y2="130" stroke="#e8c87a" stroke-opacity="0.2"/>
+            <polyline points="30,120 70,100 110,105 150,75 190,85 230,50 270,55" fill="none" stroke="#e8c87a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="30" cy="120" r="3.5" fill="#c9a84c"/>
+            <circle cx="110" cy="105" r="3.5" fill="#c9a84c"/>
+            <circle cx="190" cy="85" r="3.5" fill="#c9a84c"/>
+            <circle cx="270" cy="55" r="3.5" fill="#f0dba0"/>
+          </svg>
+        </div>
         <div class="proj-body">
           <div class="proj-tags"><span class="proj-tag">Excel</span><span class="proj-tag">Financial Model</span><span class="proj-tag">DCF</span></div>
           <div class="proj-title">DMart — DCF Valuation Model</div>
@@ -493,7 +515,9 @@
       </div>
 
       <div class="proj-card">
-        <div class="proj-thumb">🏥</div>
+        <div class="proj-thumb">
+          <img src="Assets-%20projects/NHS%20Diagnostic%20Analysis.png" alt="NHS Diagnostic Analysis dashboard screenshot">
+        </div>
         <div class="proj-body">
           <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">Pandas</span><span class="proj-tag">Matplotlib</span><span class="proj-tag">Healthcare</span></div>
           <div class="proj-title">NHS Diagnostic Analysis</div>
@@ -506,7 +530,19 @@
       </div>
 
       <div class="proj-card">
-        <div class="proj-thumb">🏷️</div>
+        <div class="proj-thumb">
+          <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg">
+            <line x1="150" y1="80" x2="70" y2="45" stroke="#e8c87a" stroke-width="1.5" stroke-opacity="0.5"/>
+            <line x1="150" y1="80" x2="230" y2="45" stroke="#e8c87a" stroke-width="1.5" stroke-opacity="0.5"/>
+            <line x1="150" y1="80" x2="70" y2="120" stroke="#e8c87a" stroke-width="1.5" stroke-opacity="0.5"/>
+            <line x1="150" y1="80" x2="230" y2="120" stroke="#e8c87a" stroke-width="1.5" stroke-opacity="0.5"/>
+            <circle cx="150" cy="80" r="9" fill="#c9a84c"/>
+            <circle cx="70" cy="45" r="6" fill="none" stroke="#e8c87a" stroke-width="2"/>
+            <circle cx="230" cy="45" r="6" fill="none" stroke="#e8c87a" stroke-width="2"/>
+            <circle cx="70" cy="120" r="6" fill="none" stroke="#e8c87a" stroke-width="2"/>
+            <circle cx="230" cy="120" r="6" fill="none" stroke="#e8c87a" stroke-width="2"/>
+          </svg>
+        </div>
         <div class="proj-body">
           <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">Classification</span><span class="proj-tag">Data Engineering</span></div>
           <div class="proj-title">Product Attribution System</div>
@@ -518,7 +554,20 @@
       </div>
 
       <div class="proj-card">
-        <div class="proj-thumb">🏦</div>
+        <div class="proj-thumb">
+          <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg">
+            <line x1="25" y1="130" x2="280" y2="130" stroke="#e8c87a" stroke-opacity="0.2"/>
+            <line x1="25" y1="130" x2="25" y2="30" stroke="#e8c87a" stroke-opacity="0.2"/>
+            <circle cx="60" cy="105" r="4" fill="#e8c87a" opacity="0.6"/>
+            <circle cx="90" cy="115" r="4" fill="#e8c87a" opacity="0.6"/>
+            <circle cx="120" cy="100" r="4" fill="#e8c87a" opacity="0.6"/>
+            <circle cx="150" cy="110" r="4" fill="#e8c87a" opacity="0.6"/>
+            <circle cx="180" cy="95" r="4" fill="#e8c87a" opacity="0.6"/>
+            <circle cx="210" cy="108" r="4" fill="#e8c87a" opacity="0.6"/>
+            <circle cx="235" cy="45" r="6" fill="none" stroke="#e0965a" stroke-width="2.5"/>
+            <circle cx="235" cy="45" r="10" fill="none" stroke="#e0965a" stroke-width="1" opacity="0.5"/>
+          </svg>
+        </div>
         <div class="proj-body">
           <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">Pandas</span><span class="proj-tag">Anomaly Detection</span><span class="proj-tag">Risk Analytics</span></div>
           <div class="proj-title">Banking Transaction Anomaly Detection & Analysis</div>
@@ -531,7 +580,9 @@
       </div>
 
       <div class="proj-card">
-        <div class="proj-thumb">📉</div>
+        <div class="proj-thumb">
+          <img src="Assets-%20projects/ConnectTel%20Customer%20Churn%20Prediction.png" alt="ConnectTel Customer Churn Prediction dashboard screenshot">
+        </div>
         <div class="proj-body">
           <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">scikit-learn</span><span class="proj-tag">Machine Learning</span><span class="proj-tag">Churn</span></div>
           <div class="proj-title">ConnectTel Customer Churn Prediction</div>
@@ -544,7 +595,9 @@
       </div>
 
       <div class="proj-card">
-        <div class="proj-thumb">🎯</div>
+        <div class="proj-thumb">
+          <img src="Assets-%20projects/Customer%20Loyalty%20Analytics.png" alt="Customer Loyalty Analytics dashboard screenshot">
+        </div>
         <div class="proj-body">
           <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">R</span><span class="proj-tag">Segmentation</span><span class="proj-tag">NLP</span><span class="proj-tag">Predictive Modelling</span></div>
           <div class="proj-title">Customer Loyalty Analytics</div>
